@@ -9,7 +9,9 @@ instructions
   2. install [Docker][2]
   3. `vagrant plugin install docker`
   4. `vagrant up`
-  5. see http://127.0.0.1/
+  5. see http://127.0.0.1/ (if you get a connection reset, wait about 30
+  seconds for everything to finish starting. The first run must initialize the
+  database schema.)
   
 If you frob the `Dockerfile` or other stuff, `vagrant reload` will re-build everything.
   

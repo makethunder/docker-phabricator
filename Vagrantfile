@@ -7,7 +7,7 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define 'mysql' do |mysql|
     mysql.vm.provider 'docker' do |d|
-      d.image = 'mysql'
+      d.build_dir = 'mysql'
       d.name = 'mysql'
       d.env = { 'MYSQL_ROOT_PASSWORD' => 'mysqlroot' }
     end

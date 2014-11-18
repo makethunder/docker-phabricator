@@ -17,4 +17,6 @@ done
 
 storage status || storage upgrade --force
 
+phd start
+
 /usr/sbin/apache2ctl -D FOREGROUND

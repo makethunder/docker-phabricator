@@ -15,7 +15,9 @@ RUN \
 RUN a2enmod rewrite && a2dissite 000-default
 ADD apache.conf /etc/apache2/sites-enabled/000-phabricator.conf
 ADD start /usr/local/phabricator/start
-#RUN chmod a+x /usr/local/phabricator/start
 
-CMD /usr/local/phabricator/start
+VOLUME /var/repo
+VOLUME /usr/local/phabricator/phabricator/conf/local
+
+CMD ["/usr/local/phabricator/start"]
 EXPOSE 80
