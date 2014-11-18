@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e -x
+
+PATH="/usr/local/phabricator/phabricator/bin:$PATH"
+
+config set mysql.host "$MYSQL_PORT_3306_TCP_ADDR"
+config set mysql.port "$MYSQL_PORT_3306_TCP_PORT"
+config set mysql.user "root"
+config set mysql.pass "$MYSQL_ENV_MYSQL_ROOT_PASSWORD"
+
+storage status || storage upgrade --force
+
+/usr/sbin/apache2ctl -D FOREGROUND
