@@ -8,6 +8,7 @@ config set mysql.host "$MYSQL_PORT_3306_TCP_ADDR"
 config set mysql.port "$MYSQL_PORT_3306_TCP_PORT"
 config set mysql.user "root"
 config set mysql.pass "$MYSQL_ENV_MYSQL_ROOT_PASSWORD"
+[ "$BASE_URI" ] && config set phabricator.base-uri "$BASE_URI"
 
 while storage status 2>&1 >/dev/null | grep -q "Can't connect to MySQL"
 do
@@ -15,6 +16,8 @@ do
   sleep 1
 done
 
-storage status || storage upgrade --force
+storage upgrade --force
+
+phd start
 
 /usr/sbin/apache2ctl -D FOREGROUND

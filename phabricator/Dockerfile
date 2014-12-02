@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 RUN \
   apt-get -qq update && \
   apt-get -y install git apache2 dpkg-dev php5 php5-mysql php5-gd \
-  php5-dev php5-curl php-apc php5-cli php5-json
+  php5-dev php5-curl php-apc php5-cli php5-json php5-ldap
 
 RUN \
   mkdir /usr/local/phabricator && \
@@ -12,10 +12,17 @@ RUN \
   git clone https://github.com/phacility/arcanist.git && \
   git clone https://github.com/phacility/phabricator.git
 
-RUN a2enmod rewrite && a2dissite 000-default
-ADD apache.conf /etc/apache2/sites-enabled/000-phabricator.conf
-ADD start /usr/local/phabricator/start
-#RUN chmod a+x /usr/local/phabricator/start
+ADD apache.conf /etc/apache2/sites-available/phabricator.conf
 
-CMD /usr/local/phabricator/start
+RUN \
+  a2enmod rewrite && \
+  a2ensite phabricator && \
+  a2dissite 000-default
+
+ADD start /usr/local/phabricator/start
+
+VOLUME /var/repo
+VOLUME /usr/local/phabricator/phabricator/conf/local
+
+CMD ["/usr/local/phabricator/start"]
 EXPOSE 80

@@ -1,0 +1,9 @@
+# phabricator should listen on port 80
+nc -z "$PHABRICATOR_PORT_80_TCP_ADDR" "$PHABRICATOR_PORT_80_TCP_PORT"
+>>>= 0
+
+# Phabricator says it's alive
+curl http://"$PHABRICATOR_PORT_80_TCP_ADDR"/status/
+>>>
+ALIVE
+>>>=0
