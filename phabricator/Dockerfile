@@ -2,8 +2,20 @@ FROM ubuntu:14.04
 
 RUN \
   apt-get -qq update && \
-  apt-get -y install git apache2 dpkg-dev php5 php5-mysql php5-gd \
-  php5-dev php5-curl php-apc php5-cli php5-json php5-ldap
+  apt-get -y install \
+    apache2 \
+    dpkg-dev \
+    git \
+    graphviz \
+    php5 \
+    php5-cli \
+    php5-curl \
+    php5-dev \
+    php5-gd \
+    php5-json \
+    php5-ldap \
+    php5-mysql \
+    php-apc
 
 RUN \
   mkdir /usr/local/phabricator && \
