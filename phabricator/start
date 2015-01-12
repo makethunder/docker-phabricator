@@ -8,6 +8,7 @@ config set mysql.host "$MYSQL_PORT_3306_TCP_ADDR"
 config set mysql.port "$MYSQL_PORT_3306_TCP_PORT"
 config set mysql.user "root"
 config set mysql.pass "$MYSQL_ENV_MYSQL_ROOT_PASSWORD"
+config set pygments.enabled "true"
 [ "$BASE_URI" ] && config set phabricator.base-uri "$BASE_URI"
 
 while storage status 2>&1 >/dev/null | grep -q "Can't connect to MySQL"

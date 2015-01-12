@@ -15,7 +15,11 @@ RUN \
     php5-json \
     php5-ldap \
     php5-mysql \
-    php-apc
+    php-apc \
+    python-pygments \
+    && \
+  apt-get -y clean && \
+  rm -rf /var/lib/apt/lists/*
 
 RUN \
   mkdir /usr/local/phabricator && \
