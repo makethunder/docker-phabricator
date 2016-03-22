@@ -25,11 +25,11 @@ RUN \
   mkdir /usr/local/phabricator && \
   cd /usr/local/phabricator && \
   git clone https://github.com/phacility/libphutil.git && \
-  (cd libphutil && git checkout 74c9cb3a266e7d6353c043dd744a97376fe62571) &&\
+  (cd libphutil && git checkout b4f38af384807b7dcd1e3d1a96e9e9069e4d6964) &&\
   git clone https://github.com/phacility/arcanist.git && \
-  (cd arcanist && git checkout b697a3b80bdcc0dbb2d2c2ca4774227c83ea22a1) &&\
+  (cd arcanist && git checkout 3d7ac867f53892b8210339bbb0c5fd91e0e36d78) &&\
   git clone https://github.com/phacility/phabricator.git && \
-  (cd phabricator && git checkout c1dca8238f7d89e4ed5ee4b70547d418aee3baf8)
+  (cd phabricator && git checkout 44c3f06ab96d168f6df6fd665e7d35983060a38b)
 
 ADD apache.conf /etc/apache2/sites-available/phabricator.conf
 
