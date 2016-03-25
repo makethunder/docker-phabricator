@@ -29,7 +29,7 @@ RUN \
   git clone https://github.com/phacility/arcanist.git && \
   (cd arcanist && git checkout 3d7ac867f53892b8210339bbb0c5fd91e0e36d78) &&\
   git clone https://github.com/phacility/phabricator.git && \
-  (cd phabricator && git checkout 44c3f06ab96d168f6df6fd665e7d35983060a38b)
+  (cd phabricator && git checkout 3493d9d5138e0a630624bced548090163ce9be8a)
 
 ADD apache.conf /etc/apache2/sites-available/phabricator.conf
 
